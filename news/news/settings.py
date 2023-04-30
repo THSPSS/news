@@ -11,26 +11,32 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# root NEWS folder
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# when deploy project , secret_key should not be leaked
 SECRET_KEY = 'django-insecure-w(3cmh6g4t(!1ywbctlm=m+*q#tbja-esw2ovg!m_bboa$989c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# important
+# django tell what error you have faced
+# when service to customer make this to False / make secure
 DEBUG = True
 
+# using when deploying project
+# put domain
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# plugin and play 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,8 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'listings'
 ]
-
+#security setting
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+#pointing urls.py file inside of news folder
 ROOT_URLCONF = 'news.urls'
 
 TEMPLATES = [
@@ -69,12 +77,15 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'news.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# important settng 
+# database is gonna be file
+# change to other database for deploying
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -104,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
+# translation
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -117,9 +128,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-STATICFILES_DIR = [
+STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
