@@ -1,0 +1,349 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+img,
+span,
+button,
+ion-icon {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+.container {
+  padding-inline: 16px;
+}
+
+/* Styles for the desktop version */
+@media (min-width: 575px) {
+  .container {
+    max-width: 1620px;
+    margin: auto;
+    padding-inline: 70px;
+  }
+}
+.img-cover {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.grid-list {
+  display: grid;
+}
+
+.h1 {
+  font-size: 5rem;
+  font-weight: 800;
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  color: hsl(0, 0%, 0%);
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+.btn {
+  -webkit-margin-before: 26px;
+          margin-block-start: 26px;
+  padding-inline: 20px;
+  padding-block: 16px;
+  width: 186px;
+  color: hsl(36, 100%, 99%);
+  background-color: hsl(5, 85%, 63%);
+  text-align: center;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  transition: 0.25s ease;
+}
+
+.btn:is(:hover, :focus-visible) {
+  background-color: hsl(240, 100%, 5%);
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+html body {
+  background-color: hsl(36, 100%, 99%);
+  color: hsl(0, 0%, 0%);
+  font-size: 1.6rem;
+  /* Styles for the desktop version */
+  /*-----------------------------------*\
+  #HEADER
+  \*-----------------------------------*/
+  /*-----------------------------------*\
+  #HERO
+  \*-----------------------------------*/
+  /*-----------------------------------*\
+  #NEW
+  \*-----------------------------------*/
+  /*-----------------------------------*\
+  #POPULAR
+  \*-----------------------------------*/
+}
+@media (min-width: 575px) {
+  html body article {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+  }
+  html body article .container {
+    max-width: 1920px;
+    margin: auto;
+    padding-inline: 60px;
+  }
+  html body article .popular {
+    grid-column: 1/span 2;
+  }
+  html body article .popular .grid-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+html body .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-block: 16px;
+  background-color: hsl(36, 100%, 99%);
+  z-index: 4;
+}
+html body .header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Styles for the desktop version */
+}
+html body .header .container .navbar {
+  position: absolute;
+  top: 0;
+  right: -340px;
+  max-width: 340px;
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(36, 100%, 99%);
+  padding: 30px;
+  overflow: hidden;
+  visibility: hidden;
+  z-index: 2;
+  transition: 0.25s cubic-bezier(0.51, 0.03, 0.64, 0.28);
+}
+html body .header .container .navbar .navbar-list {
+  -webkit-margin-before: initial;
+          margin-block-start: initial;
+}
+html body .header .container .navbar .navbar-list li {
+  padding-block: 10px;
+  font-size: 2.6rem;
+}
+html body .header .container .navbar .navbar-list li:is(:hover, :focus-visible) {
+  color: hsl(35, 77%, 62%);
+}
+html body .header .container .navbar.active {
+  visibility: visible;
+  transform: translateX(-340px);
+  transition: 0.5s cubic-bezier(0.05, 0.83, 0.52, 0.97);
+}
+html body .header .container .nav-close-btn ion-icon,
+html body .header .container .nav-open-btn ion-icon {
+  --ionicon-stroke-width: 26px;
+}
+html body .header .container .nav-open-btn,
+html body .header .container .nav-close-btn {
+  font-size: 6.5rem;
+}
+html body .header .container .nav-close-btn {
+  -webkit-margin-start: 235px;
+          margin-inline-start: 235px;
+}
+html body .header .container .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(0, 0%, 0%);
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.25s ease;
+}
+html body .header .container .overlay.active {
+  visibility: visible;
+  opacity: 0.4;
+}
+@media (min-width: 575px) {
+  html body .header .container .nav-open-btn,
+  html body .header .container .nav-close-btn {
+    display: none;
+    /* Hide the mobile figure */
+  }
+  html body .header .container .navbar,
+  html body .header .container .navbar.active {
+    all: unset;
+    display: block;
+  }
+  html body .header .container .navbar-list {
+    -webkit-margin-before: 10px;
+            margin-block-start: 10px;
+    display: flex;
+    gap: 40px;
+  }
+  html body .header .container .navbar-list li .navbar-link {
+    font-size: 1.6rem;
+  }
+}
+html body .hero {
+  -webkit-padding-before: 100px;
+          padding-block-start: 100px;
+  -webkit-padding-after: 60px;
+          padding-block-end: 60px;
+  /* Styles for the mobile version */
+  /* Styles for the desktop version */
+}
+html body .hero .img-holder.mobile {
+  display: block;
+  /* Show the mobile figure */
+}
+html body .hero .img-holder.desktop {
+  display: none;
+  /* Hide the desktop figure */
+}
+@media (min-width: 575px) {
+  html body .hero .img-holder.mobile {
+    display: none;
+    /* Hide the mobile figure */
+  }
+  html body .hero .img-holder.desktop {
+    display: block;
+    /* Show the desktop figure */
+  }
+}
+html body .hero .hero-content {
+  /* Styles for the desktop version */
+}
+html body .hero .hero-content .hero-title {
+  padding-block: 20px;
+  line-height: 1;
+}
+html body .hero .hero-content .hero-subtext {
+  color: hsl(236, 13%, 42%);
+}
+@media (min-width: 575px) {
+  html body .hero .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -webkit-padding-before: 44px;
+            padding-block-start: 44px;
+  }
+}
+@media (min-width: 575px) {
+  html body .new {
+    -webkit-padding-before: 100px;
+            padding-block-start: 100px;
+  }
+}
+html body .new .container {
+  -webkit-margin-after: 60px;
+          margin-block-end: 60px;
+}
+html body .new .container .new-wrapper {
+  padding-inline: 20px;
+  background-color: hsl(240, 100%, 5%);
+}
+html body .new .container .new-wrapper .h2 {
+  font-size: 4.2rem;
+  color: hsl(35, 77%, 62%);
+  border: 1px solid hsl(240, 100%, 5%);
+  -webkit-padding-before: 20px;
+          padding-block-start: 20px;
+}
+html body .new .container .new-wrapper .grid-list {
+  -webkit-padding-before: 26px;
+          padding-block-start: 26px;
+}
+html body .new .container .new-wrapper .grid-list li {
+  padding-block: 30px;
+}
+html body .new .container .new-wrapper .grid-list li .card-title {
+  font-size: 2.6rem;
+  color: hsl(36, 100%, 99%);
+  -webkit-padding-after: 10px;
+          padding-block-end: 10px;
+  transition: 0.5s ease;
+}
+html body .new .container .new-wrapper .grid-list li .card-subtext {
+  color: hsl(233, 8%, 79%);
+}
+html body .new .container .new-wrapper .grid-list li:not(:first-child):not(:last-child) {
+  /* Styles for the middle list items */
+  border-top: 1px dotted hsl(233, 8%, 79%);
+  border-bottom: 1px dotted hsl(233, 8%, 79%);
+}
+html body .new .container .new-wrapper .grid-list .card-title:is(:hover, :focus-visible) {
+  color: hsl(35, 77%, 62%);
+}
+html body .popular .grid-list .popular-card {
+  display: flex;
+  align-items: flex-start;
+  -webkit-padding-after: 20px;
+          padding-block-end: 20px;
+  gap: 26px;
+}
+html body .popular .grid-list .popular-card .img-holder {
+  aspect-ratio: var(--width)/var(--height);
+}
+html body .popular .grid-list .popular-card .card-subtitle {
+  color: hsl(233, 8%, 79%);
+  font-size: 4.2rem;
+  font-weight: 700;
+}
+html body .popular .grid-list .popular-card .card-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+html body .popular .grid-list .popular-card .card-subtext {
+  -webkit-padding-before: 12px;
+          padding-block-start: 12px;
+  color: hsl(236, 13%, 42%);
+}/*# sourceMappingURL=style.css.map */

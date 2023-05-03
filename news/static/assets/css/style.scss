@@ -1,0 +1,481 @@
+// Breakpoints
+$mobile: 575px;
+$desktop: 1920px;
+
+$inter: 'Inter', sans-serif;
+
+
+// Colors
+$black: hsla(0, 0%, 0%, 1);
+
+
+// Primary
+$soft-orange: hsl(35, 77%, 62%);
+$soft-red: hsl(5, 85%, 63%);
+
+// Neutral
+$off-white: hsl(36, 100%, 99%);
+$grayish-blue: hsl(233, 8%, 79%);
+$dark-grayish-blue: hsl(236, 13%, 42%);
+$very-dark-blue: hsl(240, 100%, 5%);
+
+// Body Copy
+$font-size-paragraph: 15px;
+
+
+
+$fs-1: 5rem;
+$fs-2: 4.2rem;
+$fs-3: 3rem;
+$fs-4: 2.6rem;
+$fs-5: 1.6rem;
+$fs-6: 1.4rem;
+$fs-7: 1.2rem;
+$fs-8: 1.3rem;
+
+$fw-400: 400;
+$fw-700: 700;
+$fw-800: 800;
+
+
+
+$section-padding: 12rem;
+
+
+$transition-1: 0.25s ease;
+$transition-2: 0.5s ease;
+$cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+$cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a,
+img,
+span,
+button,
+ion-icon {
+    display: block;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+img {
+    height: auto;
+}
+
+
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+ion-icon {
+    pointer-events: none;
+}
+
+p {
+    line-height: 1.6;
+}
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+.container {
+    padding-inline: 16px;
+}
+
+/* Styles for the desktop version */
+@media (min-width: $mobile) {
+    .container {
+        max-width: 1620px;
+        margin: auto;
+        padding-inline: 70px;
+    }
+
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grid-list {
+    display: grid;
+}
+
+.h1 {
+    font-size: $fs-1;
+    font-weight: $fw-800;
+}
+
+.h1,
+.h2,
+.h3,
+.h4 {
+    color: $black;
+    font-family: $inter;
+    font-weight: $fw-700;
+}
+
+.btn {
+    margin-block-start: 26px;
+    padding-inline: 20px;
+    padding-block: 16px;
+    width: 186px;
+    color: $off-white;
+    background-color: $soft-red;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    font-size: $fs-6;
+    transition: $transition-1;
+}
+
+.btn:is(:hover, :focus-visible) {
+    background-color: $very-dark-blue;
+}
+
+
+
+html {
+    font-family: $inter;
+    font-size: 10px;
+    scroll-behavior: smooth;
+
+    body {
+        background-color: $off-white;
+        color: $black;
+        font-size: 1.6rem;
+
+        /* Styles for the desktop version */
+        @media (min-width: $mobile) {
+
+
+            article {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr;
+
+                .container {
+                    max-width: $desktop;
+                    margin: auto;
+                    padding-inline: 60px;
+                }
+
+                .popular {
+                    grid-column: 1/span 2;
+
+                    .grid-list {
+                        grid-template-columns: 1fr 1fr 1fr;
+                    }
+
+                }
+            }
+
+        }
+
+
+
+        /*-----------------------------------*\
+        #HEADER
+        \*-----------------------------------*/
+
+
+        .header {
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-block: 16px;
+            background-color: $off-white;
+            z-index: 4;
+
+            // Example usage of breakpoints
+            .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .navbar {
+                    position: absolute;
+                    top: 0;
+                    right: -340px;
+                    max-width: 340px;
+                    width: 100%;
+                    height: 100vh;
+                    background-color: $off-white;
+                    padding: 30px;
+                    overflow: hidden;
+                    visibility: hidden;
+                    z-index: 2;
+                    transition: 0.25s $cubic-in;
+
+                    .navbar-list {
+                        margin-block-start: initial;
+
+                        li {
+                            padding-block: 10px;
+                            font-size: $fs-4;
+                        }
+
+                        li:is(:hover, :focus-visible) {
+                            color: $soft-orange;
+                        }
+                    }
+
+
+                }
+
+
+                .navbar.active {
+                    visibility: visible;
+                    transform: translateX(-340px);
+                    transition: 0.5s $cubic-out;
+                }
+
+                .nav-close-btn ion-icon,
+                .nav-open-btn ion-icon {
+                    --ionicon-stroke-width: 26px;
+                }
+
+                .nav-open-btn,
+                .nav-close-btn {
+                    font-size: 6.5rem;
+                }
+
+                .nav-close-btn {
+                    margin-inline-start: 235px;
+                }
+
+                .overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100vh;
+                    background-color: $black;
+                    z-index: 1;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: $transition-1;
+                }
+
+                .overlay.active {
+                    visibility: visible;
+                    opacity: 0.4;
+                }
+
+                /* Styles for the desktop version */
+                @media (min-width: $mobile) {
+
+                    .nav-open-btn,
+                    .nav-close-btn {
+                        display: none;
+                        /* Hide the mobile figure */
+                    }
+
+                    .navbar,
+                    .navbar.active {
+                        all: unset;
+                        display: block;
+                    }
+
+                    .navbar-list {
+                        margin-block-start: 10px;
+                        display: flex;
+                        gap: 40px;
+
+                        li {
+
+                            .navbar-link {
+                                font-size: $fs-5;
+                            }
+
+
+                        }
+                    }
+
+                }
+
+
+            }
+
+
+        }
+
+        /*-----------------------------------*\
+        #HERO
+        \*-----------------------------------*/
+        .hero {
+            padding-block-start: 100px;
+            padding-block-end: 60px;
+
+            /* Styles for the mobile version */
+            .img-holder.mobile {
+                display: block;
+                /* Show the mobile figure */
+            }
+
+            .img-holder.desktop {
+                display: none;
+                /* Hide the desktop figure */
+            }
+
+            /* Styles for the desktop version */
+            @media (min-width: $mobile) {
+                .img-holder.mobile {
+                    display: none;
+                    /* Hide the mobile figure */
+                }
+
+                .img-holder.desktop {
+                    display: block;
+                    /* Show the desktop figure */
+                }
+
+
+            }
+
+            .hero-content {
+
+                .hero-title {
+                    padding-block: 20px;
+                    line-height: 1;
+                }
+
+                .hero-subtext {
+                    color: $dark-grayish-blue
+                }
+
+                /* Styles for the desktop version */
+                @media (min-width: $mobile) {
+
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    padding-block-start: 44px;
+                }
+            }
+
+
+        }
+
+        /*-----------------------------------*\
+        #NEW
+        \*-----------------------------------*/
+        .new {
+
+            @media (min-width: $mobile) {
+                padding-block-start: 100px;
+            }
+
+
+            .container {
+                margin-block-end: 60px;
+
+
+                .new-wrapper {
+                    padding-inline: 20px;
+                    background-color: $very-dark-blue;
+
+                    .h2 {
+
+                        font-size: $fs-2;
+                        color: $soft-orange;
+                        border: 1px solid $very-dark-blue;
+                        padding-block-start: 20px;
+                    }
+
+                    .grid-list {
+                        padding-block-start: 26px;
+
+                        li {
+                            padding-block: 30px;
+
+                            .card-title {
+                                font-size: $fs-4;
+                                color: $off-white;
+                                padding-block-end: 10px;
+                                transition: $transition-2
+                            }
+
+                            .card-subtext {
+                                color: $grayish-blue;
+                            }
+
+
+                        }
+
+                        li:not(:first-child):not(:last-child) {
+                            /* Styles for the middle list items */
+                            border-top: 1px dotted $grayish-blue;
+                            border-bottom: 1px dotted $grayish-blue;
+                        }
+
+                        .card-title:is(:hover, :focus-visible) {
+                            color: $soft-orange;
+                        }
+
+
+
+                    }
+                }
+
+            }
+
+
+        }
+
+        /*-----------------------------------*\
+        #POPULAR
+        \*-----------------------------------*/
+        .popular {
+            .grid-list {
+
+                .popular-card {
+                    display: flex;
+                    align-items: flex-start;
+                    padding-block-end: 20px;
+                    gap: 26px;
+
+                    .img-holder {
+                        aspect-ratio: var(--width) / var(--height);
+                    }
+
+                    .card-subtitle {
+                        color: $grayish-blue;
+                        font-size: $fs-2;
+                        font-weight: $fw-700;
+                    }
+
+                    .card-title {
+                        font-size: $fs-4;
+                        font-weight: $fw-700;
+                    }
+
+                    .card-subtext {
+                        padding-block-start: 12px;
+                        color: $dark-grayish-blue;
+                    }
+                }
+            }
+        }
+    }
+}
