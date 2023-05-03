@@ -130,7 +130,6 @@ html body {
   html body article .container {
     max-width: 1920px;
     margin: auto;
-    padding-inline: 60px;
   }
   html body article .popular {
     grid-column: 1/span 2;

@@ -1,11 +1,163 @@
 {% extends 'core/base.html' %}
+{% load static %}
+
 
 {% block title %}
-    Creating energy and power
+    View the world
 {% endblock %}
 
-{% block content %}
-    <h1>The front page</h1>
-    <p>Providing News info</p>
-{% endblock %}
+{% block hero %}
+<section class="section hero" aria-label="home">
+    <div class="container">
 
+      <div class="hero-banner">
+        <figure class="img-holder mobile" style="--width : 300; --height:300;">
+          <img src="{% static 'assets/images/image-web-3-mobile.jpg' %}" width="300" height="300" alt="hero-banner" class="img-cover">
+        </figure>
+        
+        <figure class="img-holder desktop" style="--width : 300; --height:300;">
+          <img src="{% static 'assets/images/image-web-3-desktop.jpg' %}" width="300" height="300" alt="hero-banner" class="img-cover">
+        </figure>
+      </div>
+      
+      <div class="hero-content">
+
+        <h1 class="h1 hero-title">
+          The Bright<br> 
+          Future of Web 3.0?
+        </h1>
+
+
+        <div class="wrapper">
+
+            <p class="hero-subtext">
+                We dive into the next evolution of the web that claims 
+                to put the power of the platforms back into the hands 
+                of the people. But is it really fulfilling its promise?
+            </p>
+
+            <a href="#" class="btn btn-primary">Read more</a>
+
+        </div>
+
+      </div>
+    </div>
+</section>
+{% endblock hero %}
+
+{% block new %}
+<section class="section new" aria-labelledby="new-label">
+    <div class="container">
+
+      <div class="new-wrapper">
+        <h2 class="h2 section-title">New</h2>
+
+        <ul class="grid-list">
+
+
+          <li>
+            <div class="new-card">
+              <a href="/" class="h4 card-title">Hydrogen VS Electric Cars</a>
+
+              <p class="card-subtext">
+                Will hydrogen-fueled cars ever catch up to EVs?
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div class="new-card">
+              <a href="/" class="h4 card-title">The Downsides of AI Artistry</a>
+
+              <p class="card-subtext">
+                What are the possible adverse effects of on-demand AI image generation?
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div class="new-card">
+              <a href="/" class="h4 card-title">Is VC Funding Drying Up?</a>
+
+              <p class="card-subtext">
+                Private funding by VC firms is down 50% YOY. We take a look at what that means.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+        
+    </div>
+</section>
+{% endblock new%}
+
+
+{% block popular %}
+<section class="section popular" aria-labelledby="popular-label">
+    <div class="container">
+
+      <ul class="grid-list">
+
+        <li>
+
+          <div class="popular-card">
+            <figure class="card-img img-holder" style="--width:200;--height:254">
+              <img src="{% static 'assets/images/image-retro-pcs.jpg' %}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
+            </figure>
+            
+            <div>
+              <p class="card-subtitle">01</p>
+              <h3 class="h3 card-title">Reviving Retro PCs</h3>
+              
+              <p class="card-subtext">
+                What happens when old PCs are given modern upgrades?
+              </p>
+            </div>
+          </div>
+
+        </li>
+
+        <li>
+
+          <div class="popular-card">
+            <figure class="card-img img-holder" style="--width:200;--height:254">
+              <img src="{% static 'assets/images/image-top-laptops.jpg' %}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
+            </figure>
+            
+            <div>
+              <p class="card-subtitle">02</p>
+              <h3 class="h3 card-title">Top 10 Laptops of 2022</h3>
+              
+              <p class="card-subtext">
+                What happens when old PCs are given modern upgrades?
+              </p>
+            </div>
+          </div>
+          
+        </li>
+
+        <li>
+
+          <div class="popular-card">
+            <figure class="card-img img-holder" style="--width:200;--height:254">
+              <img src="{% static 'assets/images/image-gaming-growth.jpg' %}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
+            </figure>
+            
+            <div>
+              <p class="card-subtitle">03</p>
+              <h3 class="h3 card-title">The Growth of Gaming</h3>
+              
+              <p class="card-subtext">
+                How the pandemic has sparked fresh opportunities.
+              </p>
+            </div>
+          </div>
+          
+        </li>
+
+      </ul>
+
+    </div>
+  </section>   
+{% endblock popular%}
