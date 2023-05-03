@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +7,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <title>{% block title %}{% endblock %} | News</title>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+ <!-- 
+    - favicon
+  -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicon-32x32.png' %}">
+
+   <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+
+     <!-- 
+    - preload images
+   -->
+   <!-- <link rel="preload" as="image" href="./assets/images/image-web-3-mobile.jpg">
+   <link rel="preload" as="image" href="./assets/images/image-web-3-desktop.jpg">
+   <link rel="preload" as="image" href="./assets/images/image-top-laptops.jpg"> -->
+
 </head>
 <body>
-    <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200">
-        <a href="/" class="text-xl.font-semibold">News</a>
 
+      <!-- 
+    - #HEADER
+  -->
 
-        <p>New item</p>
-    </nav>
+  <header class="header" data-header>
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="{% static 'assets/images/logo.svg' %}" alt="News home" width="46" height="26">
+        </a>
 
+        <nav class="navbar" data-navbar>
+            <button class="nav-close-btn" aria-label="close menu" data-nav-toggler="">
+                <ion-icon name="close-outline" aria-hidden="true" role="img" class="md hydrated"></ion-icon>
+            </button>
+    
+            <ul class="navbar-list">
 
-    <div class="px-6 py-6">
+                <li>
+                  <a href="#" class="navbar-link">Home</a>
+                </li>
+      
+                <li>
+                  <a href="#" class="navbar-link">New</a>
+                </li>
+      
+                <li>
+                  <a href="#" class="navbar-link">Popular</a>
+                </li>
+      
+                <li>
+                  <a href="#" class="navbar-link">Trending</a>
+                </li>
+      
+                <li>
+                  <a href="#" class="navbar-link">Categories</a>
+                </li>
+      
+            </ul>
+        </nav>
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler="">
+            <ion-icon name="menu-outline" aria-hidden="true" role="img" class="md hydrated"></ion-icon>
+        </button>
+
+        <div class="overlay" data-nav-toggler="" data-overlay=""></div>
+    </div>
+  </header>
+
+  <main>
         {% block content %}
         {% endblock content %}
-    </div>
+  </main>
+
 </body>
 </html>
