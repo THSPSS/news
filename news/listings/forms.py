@@ -11,4 +11,5 @@ class ListingForm(ModelForm):
             "date",
             "author",
             "content",
+            "image"
         ]

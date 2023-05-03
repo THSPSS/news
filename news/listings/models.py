@@ -17,7 +17,7 @@ class Listing(models.Model):
     author = models.CharField(max_length=20)
     content = models.CharField(max_length=300)
     # picture is quiet complicate to decide now so i leave it as comment
-    #picture
+    image = models.ImageField()
     
     def __str__(self):
         return self.title
