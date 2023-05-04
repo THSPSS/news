@@ -54,18 +54,18 @@
 
         <ul class="grid-list">
 
-
+            {% for listing in listings %}
           <li>
             <div class="new-card">
-              <a href="/" class="h4 card-title">Hydrogen VS Electric Cars</a>
+              <a href="/" class="h4 card-title">{{listing.title}}</a>
 
               <p class="card-subtext">
-                Will hydrogen-fueled cars ever catch up to EVs?
+                {{listing.subtitle}}
               </p>
             </div>
           </li>
-
-          <li>
+            {% endfor %}
+          <!-- <li>
             <div class="new-card">
               <a href="/" class="h4 card-title">The Downsides of AI Artistry</a>
 
@@ -83,7 +83,7 @@
                 Private funding by VC firms is down 50% YOY. We take a look at what that means.
               </p>
             </div>
-          </li>
+          </li> -->
 
         </ul>
       </div>
