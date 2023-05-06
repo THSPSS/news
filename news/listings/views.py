@@ -1,4 +1,5 @@
 from django.shortcuts import render , redirect
+from django.http import JsonResponse
 from .models import Listing
 from .forms import ListingForm
 # Create your views here.
