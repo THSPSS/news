@@ -1,12 +1,12 @@
-{% extends 'core/base.html' %}
+{% extends 'core/index.html' %}
 
-{% block listing %}
+{% block listings %}
 
 <a href="/add-listing/" class="text-blue-500">Creating a new listing</a>
 {% for listing in listings %}
 <li>
   <div class="new-card">
-    <a href="/" class="h4 card-title">{{listing.title}}</a>
+    <a href="/listings/{{ listing.id }}/" class="h4 card-title">{{listing.title}}</a>
 
     <p class="card-subtext">
       {{listing.subtitle}}
@@ -16,4 +16,4 @@
   {% endfor %}
 
 
-{% endblock listing %}
+{% endblock listings %}
