@@ -21,10 +21,12 @@
       </div>
       
       <div class="hero-content">
-
+        <!-- set first index of article to hero-->
+        {% for listing in listings %}
         <h1 class="h1 hero-title">
           The Bright<br> 
           Future of Web 3.0?
+
         </h1>
 
 
@@ -36,10 +38,10 @@
                 of the people. But is it really fulfilling its promise?
             </p>
 
-            <a href="#" class="btn btn-primary">Read more</a>
+            <a href="/listings/{{ listing.id }}/" class="btn btn-primary">Read more</a>
 
         </div>
-
+        {% endfor %}
       </div>
     </div>
 </section>
