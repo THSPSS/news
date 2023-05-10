@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path
 
-from core.views import index , contact
+from core.views import index , trend_list , contact 
 from listings.views import (
     listing_list , 
     listing_retrieve , 
@@ -13,6 +13,7 @@ from listings.views import (
 )
 urlpatterns = [
     path('', index , name='index'),
+    path('', trend_list , name='index'),
     path('contact/', contact , name='contact'),
     path('admin/', admin.site.urls),
     path('listings/', listing_list),

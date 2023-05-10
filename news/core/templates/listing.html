@@ -6,6 +6,7 @@
 <div class="px-3 py-40 bg-gray-100 rounded-sm">
     <h3 class="text-3xl text-gray-900">{{listing.title}}</h3>
     <p class="text-gray-900 text-sm">{{ listing.date }} || <span>{{ listing.author}}</span></p>
+    <p class="text-gray-900 text-sm">view : {{ listing.viewCount}}</span>
     <img src="{{ listing.image.url }}" alt="img">
     <p class="text-gray-600">{{ listing.content}}</p>
 

@@ -74,28 +74,30 @@
 <section class="section popular" aria-labelledby="popular-label">
     <div class="container">
 
-      <ul class="grid-list">
+      <!--planning to replace listings to trend listings-->
 
+      <ul class="grid-list">
+        {% for listing in listings|slice:":3"  %}
         <li>
 
           <div class="popular-card">
             <figure class="card-img img-holder" style="--width:200;--height:254">
-              <img src="{% static 'assets/images/image-retro-pcs.jpg' %}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
+              <img src="{{ listing.image.url }}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
             </figure>
             
             <div>
               <p class="card-subtitle">01</p>
-              <h3 class="h3 card-title">Reviving Retro PCs</h3>
+              <a href="/listings/{{ listing.id }}/"><h3 class="h3 card-title">{{listing.title}}</h3></a>
               
               <p class="card-subtext">
-                What happens when old PCs are given modern upgrades?
+                {{listing.subtitle}}
               </p>
             </div>
           </div>
 
         </li>
-
-        <li>
+        {% endfor %}
+        <!-- <li>
 
           <div class="popular-card">
             <figure class="card-img img-holder" style="--width:200;--height:254">
@@ -131,7 +133,7 @@
             </div>
           </div>
           
-        </li>
+        </li> -->
 
       </ul>
 

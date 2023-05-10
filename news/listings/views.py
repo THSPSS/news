@@ -2,6 +2,7 @@ from django.shortcuts import render , redirect
 from django.http import JsonResponse
 from .models import Listing
 from .forms import ListingForm
+from django.shortcuts import get_object_or_404
 # Create your views here.
 # the Logic that handle the customer's action
 
@@ -11,6 +12,8 @@ from .forms import ListingForm
 # request from browser
 # fetching all data from database
 
+
+# Function based view
 # list view
 # get listing datas and return it with dictionary 
 def listing_list(request) : 
@@ -25,10 +28,16 @@ def listing_list(request) :
 
 #retrieve (almost same as list)
 def listing_retrieve(request , pk) :
-    listing = Listing.objects.get(id=pk)
+    #listing = Listing.objects.get(id=pk)
+    listing = get_object_or_404(Listing , id=pk)
+
+    #update the view count on each visit to this article.
+    listing.update_views()
+
     context = {
         "listing" : listing
     }
+
     return render(request , "listing.html", context)
 
 

@@ -18,10 +18,16 @@ class Listing(models.Model):
     content = models.CharField(max_length=300)
     # picture is quiet complicate to decide now so i leave it as comment
     image = models.ImageField()
+    viewCount = models.IntegerField(default=0,editable=False)# Upon creation the views will be 0
     
     def __str__(self):
         return self.title
     
+
+     # An alternative to use to update the view count 
+    def update_views(self, *args, **kwargs):
+         self.viewCount = self.viewCount + 1
+         super(Listing, self).save(*args, **kwargs)
 
 
 
