@@ -77,7 +77,7 @@
       <!--planning to replace listings to trend listings-->
 
       <ul class="grid-list">
-        {% for listing in listings|slice:":3"  %}
+        {% for listing in listings|slice:":3" %}
         <li>
 
           <div class="popular-card">
@@ -86,7 +86,7 @@
             </figure>
             
             <div>
-              <p class="card-subtitle">01</p>
+              <p class="card-subtitle">Trend</p>
               <a href="/listings/{{ listing.id }}/"><h3 class="h3 card-title">{{listing.title}}</h3></a>
               
               <p class="card-subtext">
