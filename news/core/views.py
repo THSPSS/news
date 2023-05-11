@@ -11,12 +11,12 @@ def index(request):
 
 #making trend list function
 # using order_by()method
-def popular_list(request):
-    popular_lists = Listing.objects.all().order_by('-viewCount')
-    context = {
-        'popular_lists':popular_lists,
-    }
-    return render(request,'core/index.html',context)
+# def popular_list(request):
+#     popular_lists = Listing.objects.all().order_by('-viewCount')
+#     context = {
+#         'popular_lists':popular_lists,
+#     }
+#     return render(request,'core/index.html',context)
 
 def contact(request):
     return render(request, 'core/contact.html')

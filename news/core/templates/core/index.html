@@ -74,10 +74,9 @@
 <section class="section popular" aria-labelledby="popular-label">
     <div class="container">
 
-      <!--planning to replace listings to trend listings-->
 
       <ul class="grid-list">
-        {% for listing in listings|sort(attribute='viewCount', reverse=True)|slice(":3") %}
+        {% for listing in listings|sort(attribute='viewCount', reverse = True) %}
         <li>
 
           <div class="popular-card">
