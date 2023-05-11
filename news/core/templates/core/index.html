@@ -77,7 +77,7 @@
       <!--planning to replace listings to trend listings-->
 
       <ul class="grid-list">
-        {% for listing in listings|slice:":3" %}
+        {% for listing in listings|sort(attribute='viewCount', reverse=True)|slice(":3") %}
         <li>
 
           <div class="popular-card">

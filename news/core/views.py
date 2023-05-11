@@ -11,10 +11,10 @@ def index(request):
 
 #making trend list function
 # using order_by()method
-def trend_list(request):
-    trend_lists = Listing.objects.all().order_by('-viewCount')
+def popular_list(request):
+    popular_lists = Listing.objects.all().order_by('-viewCount')
     context = {
-        'trend_lists':trend_lists,
+        'popular_lists':popular_lists,
     }
     return render(request,'core/index.html',context)
 
