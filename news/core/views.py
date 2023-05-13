@@ -4,8 +4,10 @@ from listings.models import Listing
 
 def index(request):
     listings = Listing.objects.all()
+    popular_lists = Listing.objects.all().order_by('-viewCount')
     context = {
         'listings': listings,
+        'popular_lists' : popular_lists
     }
     return render(request, 'core/index.html', context)
 

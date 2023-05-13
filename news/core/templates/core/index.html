@@ -75,20 +75,20 @@
 
 
       <ul class="grid-list">
-        {% for listing in listings %}
+        {% for popular in popular_lists   %}
         <li>
 
           <div class="popular-card">
             <figure class="card-img img-holder" style="--width:200;--height:254">
-              <img src="{{ listing.image.url }}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
+              <img src="{{ popular.image.url }}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
             </figure>
             
             <div>
-              <p class="card-subtitle">Trend</p>
-              <a href="/listings/{{ listing.id }}/"><h3 class="h3 card-title">{{listing.title}}</h3></a>
+              <p class="card-subtitle">{{ forloop.counter0 }}</p>
+              <a href="/listings/{{ popular.id }}/"><h3 class="h3 card-title">{{popular.title}}</h3></a>
               
               <p class="card-subtext">
-                {{listing.subtitle}}
+                {{popular.subtitle}}
               </p>
             </div>
           </div>
