@@ -84,7 +84,7 @@
             </figure>
             
             <div>
-              <p class="card-subtitle">{{ forloop.counter0 }}</p>
+              <p class="card-subtitle">{{ forloop.counter }}</p>
               <a href="/listings/{{ popular.id }}/"><h3 class="h3 card-title">{{popular.title}}</h3></a>
               
               <p class="card-subtext">
@@ -95,43 +95,6 @@
 
         </li>
         {% endfor %}
-        <!-- <li>
-
-          <div class="popular-card">
-            <figure class="card-img img-holder" style="--width:200;--height:254">
-              <img src="{% static 'assets/images/image-top-laptops.jpg' %}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
-            </figure>
-            
-            <div>
-              <p class="card-subtitle">02</p>
-              <h3 class="h3 card-title">Top 10 Laptops of 2022</h3>
-              
-              <p class="card-subtext">
-                What happens when old PCs are given modern upgrades?
-              </p>
-            </div>
-          </div>
-          
-        </li>
-
-        <li>
-
-          <div class="popular-card">
-            <figure class="card-img img-holder" style="--width:200;--height:254">
-              <img src="{% static 'assets/images/image-gaming-growth.jpg' %}" width="200" height="254" loading="lazy" alt="image-retro-pcs">
-            </figure>
-            
-            <div>
-              <p class="card-subtitle">03</p>
-              <h3 class="h3 card-title">The Growth of Gaming</h3>
-              
-              <p class="card-subtext">
-                How the pandemic has sparked fresh opportunities.
-              </p>
-            </div>
-          </div>
-          
-        </li> -->
 
       </ul>
 
