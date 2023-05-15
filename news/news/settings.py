@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+#set env
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # root NEWS folder
@@ -22,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # when deploy project , secret_key should not be leaked
-SECRET_KEY = 'django-insecure-w(3cmh6g4t(!1ywbctlm=m+*q#tbja-esw2ovg!m_bboa$989c'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # important
@@ -86,12 +92,37 @@ WSGI_APPLICATION = 'news.wsgi.application'
 # important settng 
 # database is gonna be file
 # change to other database for deploying
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
+
+
+# Amazon RDS PostgreSQL database (Live)
+
+DATABASES = {
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': env('DATABASE_NAME'),
+
+        'USER' : env('DATABASE_USER'),
+
+        'PASSWORD' : env('DATABASE_PASS'),
+
+        'HOST' : env('DATABASE_HOST'),
+
+        'PORT' : env('DATABASE_PORT'),
+    }
+
+}
+
+
 
 
 # Password validation
