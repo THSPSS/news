@@ -29,12 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # when deploy project , secret_key should not be leaked
 SECRET_KEY=env('SECRET_KEY')
-
+DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 # important
 # django tell what error you have faced
 # when service to customer make this to False / make secure
-DEBUG = True
+
 
 # using when deploying project
 # put domain
