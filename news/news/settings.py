@@ -9,14 +9,55 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+#import modules
 from pathlib import Path
 import environ
+import boto3
+import json
+from botocore.exceptions import NoCredentialsError
+
+#AWS Secret Manager configuration
+AWS_SECRETS_MANAGER_REGION_NAME = 'us-east-2'  # Replace with your AWS region
+AWS_SECRETS_MANAGER_SECRET_NAME = 'mynewappsecretkey'  # Replace with the name of your secret
+AWS_ACCESS_KEY_ID = 'AKIAQ3S3JBTA2OHE7BGA'  # Replace with your AWS secret access key
+AWS_SECRET_ACCESS_KEY = 'ufmvicj9A6Kk/WFoVjl60Ut6GTU/O/3pjzcPqWd4'  # Replace with the name of your secret
+
+# Function to retrieve secrets from AWS Secret Manager
+def get_secret_value():
+    secret_name = AWS_SECRETS_MANAGER_SECRET_NAME
+    region_name = AWS_SECRETS_MANAGER_REGION_NAME
+    
+    try:
+        # Create a Secrets Manager client with AWS credentials
+        session = boto3.session.Session(
+            aws_access_key_id=AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+        )
+        client = session.client(
+            service_name='secretsmanager', 
+            region_name=region_name
+        )
+        # Get the secret value
+        response = client.get_secret_value(SecretId=secret_name)
+        secret_value = response['SecretString']
+        
+        return secret_value
+    
+    except NoCredentialsError:
+        print("Unable to access AWS credentials.")
 
 #set env
 env = environ.Env()
 environ.Env.read_env()
 
+# Retrieve the secret values
+SECRET_VALUES = get_secret_value()
+
+# Parse the secret values string into a dictionary
+secret_values_dict = json.loads(SECRET_VALUES)
+
+# Access the specific secret key
+print(secret_values_dict["SECRET_KEY"])
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # root NEWS folder
