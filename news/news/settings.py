@@ -57,7 +57,7 @@ SECRET_VALUES = get_secret_value()
 secret_values_dict = json.loads(SECRET_VALUES)
 
 # Access the specific secret key
-print(secret_values_dict["SECRET_KEY"])
+#print(secret_values_dict["SECRET_KEY"])
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # root NEWS folder
@@ -69,7 +69,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # when deploy project , secret_key should not be leaked
-SECRET_KEY=env('SECRET_KEY')
+SECRET_KEY=secret_values_dict["SECRET_KEY"]
 DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 # important
@@ -150,15 +150,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': env('DATABASE_NAME'),
+        'NAME': secret_values_dict['DATABASE_NAME'],
 
-        'USER' : env('DATABASE_USER'),
+        'USER' : secret_values_dict['DATABASE_USER'],
 
-        'PASSWORD' : env('DATABASE_PASS'),
+        'PASSWORD' : secret_values_dict['DATABASE_PASS'],
 
-        'HOST' : env('DATABASE_HOST'),
+        'HOST' : secret_values_dict['DATABASE_HOST'],
 
-        'PORT' : env('DATABASE_PORT'),
+        'PORT' : secret_values_dict['DATABASE_PORT'],
     }
 
 }
