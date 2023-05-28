@@ -47,8 +47,8 @@ def get_secret_value():
         print("Unable to access AWS credentials.")
 
 #set env
-env = environ.Env()
-environ.Env.read_env()
+# env = environ.Env()
+# environ.Env.read_env()
 
 # Retrieve the secret values
 SECRET_VALUES = get_secret_value()
