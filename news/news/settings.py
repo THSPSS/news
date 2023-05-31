@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 #import modules
 from pathlib import Path
 import boto3
-import json
+import json  
 from botocore.exceptions import NoCredentialsError
 
 #AWS Secret Manager configuration
